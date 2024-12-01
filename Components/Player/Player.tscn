@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://4n7884ks3dp1"]
 
-[ext_resource type="Script" path="res://Components/Player/Marble.cs" id="1_6wvgh"]
-[ext_resource type="Script" path="res://Components/Player/Camera.cs" id="1_h56bn"]
+[ext_resource type="Script" path="res://Components/Player/Marble.gd" id="1_88qna"]
+[ext_resource type="Script" path="res://Components/Player/Camera.gd" id="2_1yv4a"]
 [ext_resource type="Texture2D" uid="uid://csrl4tsj3emri" path="res://marble.jpg" id="2_kib4a"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6y082"]
@@ -23,7 +23,7 @@ uv1_triplanar = true
 physics_material_override = SubResource("PhysicsMaterial_6y082")
 gravity_scale = 0.9
 linear_damp = 0.8
-script = ExtResource("1_6wvgh")
+script = ExtResource("1_88qna")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Marble"]
 shape = SubResource("SphereShape3D_87q07")
@@ -34,7 +34,7 @@ material_override = SubResource("StandardMaterial3D_6h67u")
 mesh = SubResource("SphereMesh_eu2ct")
 
 [node name="CameraContainer" type="Node3D" parent="."]
-script = ExtResource("1_h56bn")
+script = ExtResource("2_1yv4a")
 
 [node name="HRotation" type="Node3D" parent="CameraContainer"]
 
