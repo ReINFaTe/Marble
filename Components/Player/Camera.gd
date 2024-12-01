@@ -36,3 +36,5 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		camrot_h += -event.relative.x * h_sensitivity
 		camrot_v += -event.relative.y * v_sensitivity
+	if event is InputEventMouseButton:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
