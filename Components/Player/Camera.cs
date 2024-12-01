@@ -50,8 +50,8 @@ public partial class Camera : Node3D
 	{
 		base._Input(@event);
 		if (@event is InputEventMouseMotion) {
-			camrot_h += (@event as InputEventMouseMotion).Relative.X * h_sensitivity;
-			camrot_v += (@event as InputEventMouseMotion).Relative.Y * v_sensitivity;
+			camrot_h += -(@event as InputEventMouseMotion).Relative.X * h_sensitivity;
+			camrot_v += -(@event as InputEventMouseMotion).Relative.Y * v_sensitivity;
 		}
 	}
 }
