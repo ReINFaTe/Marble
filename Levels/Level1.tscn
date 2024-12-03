@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bogu50xdrsyk8"]
+[gd_scene load_steps=8 format=3 uid="uid://bogu50xdrsyk8"]
 
 [ext_resource type="PackedScene" uid="uid://4n7884ks3dp1" path="res://Components/Player/Player.tscn" id="1_caash"]
 [ext_resource type="Texture2D" uid="uid://cda3fwplpo2ob" path="res://floor.png" id="1_r3mcc"]
+[ext_resource type="PackedScene" uid="uid://b7kif88j71y5f" path="res://Components/FinishPoint/FinishPoint.tscn" id="3_qr7kf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pcn56"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -40,3 +41,6 @@ material = SubResource("StandardMaterial3D_rj7b6")
 
 [node name="Player" parent="." instance=ExtResource("1_caash")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.415798, 0)
+
+[node name="FinishPoint" parent="." instance=ExtResource("3_qr7kf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0601664, -0.486744, -3.32414)

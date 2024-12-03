@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://4n7884ks3dp1"]
+[gd_scene load_steps=9 format=3 uid="uid://4n7884ks3dp1"]
 
 [ext_resource type="Script" path="res://Components/Player/Marble.gd" id="1_88qna"]
+[ext_resource type="Script" path="res://Components/Player/GroundCheckRay.gd" id="1_b4ulm"]
 [ext_resource type="Script" path="res://Components/Player/Camera.gd" id="2_1yv4a"]
 [ext_resource type="Texture2D" uid="uid://csrl4tsj3emri" path="res://marble.jpg" id="2_kib4a"]
 
@@ -17,9 +18,14 @@ uv1_triplanar = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_eu2ct"]
 
-[node name="Player" type="Node3D"]
+[node name="Player" type="Node3D" groups=["player"]]
+
+[node name="GroundCheckRay" type="RayCast3D" parent="."]
+target_position = Vector3(0, -0.4, 0)
+script = ExtResource("1_b4ulm")
 
 [node name="Marble" type="RigidBody3D" parent="."]
+collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_6y082")
 gravity_scale = 0.9
 linear_damp = 0.8
@@ -41,6 +47,7 @@ script = ExtResource("2_1yv4a")
 [node name="VRotation" type="Node3D" parent="CameraContainer/HRotation"]
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraContainer/HRotation/VRotation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
 spring_length = 1.5
 margin = 1.0
 
