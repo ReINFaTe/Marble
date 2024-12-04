@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddquxpdkwe41f"]
+[gd_scene load_steps=9 format=3 uid="uid://ddquxpdkwe41f"]
 
 [ext_resource type="Script" path="res://Components/GUI/timer.gd" id="1_rtsgy"]
 [ext_resource type="Script" path="res://Components/GUI/gui.gd" id="1_t88eu"]
 [ext_resource type="Script" path="res://Components/GUI/Speed.gd" id="3_g7sr5"]
 [ext_resource type="Script" path="res://Components/GUI/height.gd" id="4_p7any"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="5_78i8l"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1higc"]
 font_size = 72
@@ -66,3 +67,15 @@ text = "0 m"
 label_settings = SubResource("LabelSettings_egark")
 horizontal_alignment = 2
 script = ExtResource("4_p7any")
+
+[node name="Virtual Joystick" parent="." instance=ExtResource("5_78i8l")]
+layout_mode = 1
+offset_left = 67.0
+offset_top = -363.0
+offset_right = 367.0
+offset_bottom = -63.0
+visibility_mode = 1
+action_left = "left"
+action_right = "right"
+action_up = "forward"
+action_down = "backward"
