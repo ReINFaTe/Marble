@@ -11,12 +11,11 @@ bounce = 0.5
 [sub_resource type="SphereShape3D" id="SphereShape3D_87q07"]
 radius = 0.124816
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6h67u"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hc43k"]
 albedo_texture = ExtResource("2_kib4a")
-uv1_scale = Vector3(5, 5, 5)
-uv1_triplanar = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_eu2ct"]
+material = SubResource("StandardMaterial3D_hc43k")
 
 [node name="Player" type="Node3D" groups=["player"]]
 
@@ -36,7 +35,6 @@ shape = SubResource("SphereShape3D_87q07")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Marble"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_6h67u")
 mesh = SubResource("SphereMesh_eu2ct")
 
 [node name="CameraContainer" type="Node3D" parent="."]

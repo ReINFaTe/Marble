@@ -1,7 +1,6 @@
-[gd_scene load_steps=26 format=3 uid="uid://bogu50xdrsyk8"]
+[gd_scene load_steps=24 format=3 uid="uid://bogu50xdrsyk8"]
 
 [ext_resource type="PackedScene" uid="uid://4n7884ks3dp1" path="res://Components/Player/Player.tscn" id="1_caash"]
-[ext_resource type="Texture2D" uid="uid://cda3fwplpo2ob" path="res://floor.png" id="1_r3mcc"]
 [ext_resource type="Texture2D" uid="uid://w7558jxjlkab" path="res://Art/Textures/stars_milky_way.jpg" id="1_xm6j6"]
 [ext_resource type="PackedScene" uid="uid://b7kif88j71y5f" path="res://Components/FinishPoint/FinishPoint.tscn" id="3_qr7kf"]
 [ext_resource type="PackedScene" uid="uid://c6x8xvlb8qnoa" path="res://Components/Trampoline/trampoline.tscn" id="4_4fjc3"]
@@ -24,12 +23,8 @@ background_mode = 2
 sky = SubResource("Sky_qwfwp")
 tonemap_mode = 2
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cggaf"]
-albedo_texture = ExtResource("1_xm6j6")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rj7b6"]
-albedo_texture = ExtResource("1_r3mcc")
-uv1_triplanar = true
+albedo_texture = ExtResource("1_xm6j6")
 grow_amount = -16.0
 point_size = 128.0
 
@@ -72,7 +67,6 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Environment"]
-material_override = SubResource("StandardMaterial3D_cggaf")
 use_collision = true
 size = Vector3(100, 0.001, 100)
 material = SubResource("StandardMaterial3D_rj7b6")

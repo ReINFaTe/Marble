@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://w7558jxjlkab"
 path.s3tc="res://.godot/imported/stars_milky_way.jpg-b0682a04057f4752011f141b36e69cfe.s3tc.ctex"
+path.etc2="res://.godot/imported/stars_milky_way.jpg-b0682a04057f4752011f141b36e69cfe.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Art/Textures/stars_milky_way.jpg"
-dest_files=["res://.godot/imported/stars_milky_way.jpg-b0682a04057f4752011f141b36e69cfe.s3tc.ctex"]
+dest_files=["res://.godot/imported/stars_milky_way.jpg-b0682a04057f4752011f141b36e69cfe.s3tc.ctex", "res://.godot/imported/stars_milky_way.jpg-b0682a04057f4752011f141b36e69cfe.etc2.ctex"]
 
 [params]
 
