@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddquxpdkwe41f"]
+
+[ext_resource type="Script" path="res://Components/GUI/timer.gd" id="1_rtsgy"]
+[ext_resource type="Script" path="res://Components/GUI/gui.gd" id="1_t88eu"]
+[ext_resource type="Script" path="res://Components/GUI/Speed.gd" id="3_g7sr5"]
+[ext_resource type="Script" path="res://Components/GUI/height.gd" id="4_p7any"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1higc"]
+font_size = 72
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_filw8"]
+font_size = 72
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_egark"]
+font_size = 72
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t88eu")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Timer" type="Label" parent="MarginContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "00:00:000"
+label_settings = SubResource("LabelSettings_1higc")
+horizontal_alignment = 1
+script = ExtResource("1_rtsgy")
+
+[node name="Speed" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+label_settings = SubResource("LabelSettings_filw8")
+script = ExtResource("3_g7sr5")
+
+[node name="Height" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "0 m"
+label_settings = SubResource("LabelSettings_egark")
+horizontal_alignment = 2
+script = ExtResource("4_p7any")

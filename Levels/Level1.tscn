@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bogu50xdrsyk8"]
+[gd_scene load_steps=26 format=3 uid="uid://bogu50xdrsyk8"]
 
 [ext_resource type="PackedScene" uid="uid://4n7884ks3dp1" path="res://Components/Player/Player.tscn" id="1_caash"]
 [ext_resource type="Texture2D" uid="uid://cda3fwplpo2ob" path="res://floor.png" id="1_r3mcc"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c62t17tfq4l7g" path="res://Art/Textures/sun.jpg" id="6_ugmrd"]
 [ext_resource type="Texture2D" uid="uid://sdv62xd0ls0j" path="res://Art/Textures/mercury.jpg" id="6_wu2md"]
 [ext_resource type="Texture2D" uid="uid://cdw3bqnh6dpt8" path="res://Art/Textures/neptune.jpg" id="9_nlfft"]
+[ext_resource type="PackedScene" uid="uid://ddquxpdkwe41f" path="res://Components/GUI/gui.tscn" id="11_3qq0i"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pcn56"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -154,3 +155,8 @@ use_collision = true
 radius = 1.49893
 radial_segments = 50
 rings = 50
+
+[node name="GUI" parent="." instance=ExtResource("11_3qq0i")]
+
+[node name="FinishPoint2" parent="." instance=ExtResource("3_qr7kf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.22163)

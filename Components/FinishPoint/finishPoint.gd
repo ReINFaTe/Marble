@@ -1,6 +1,5 @@
 extends Node3D
 
-
 func _on_finish_area_body_entered(body: Node3D) -> void:
 	if body.owner.is_in_group("player"):
 		var camera = body.owner.get_node("CameraContainer")
@@ -8,3 +7,5 @@ func _on_finish_area_body_entered(body: Node3D) -> void:
 		camera.level_finished = true
 		body.can_move = false
 		body.level_finished = true
+		var timer: Label = $/root/Level1/GUI/MarginContainer/Timer
+		timer.stopped = true;
