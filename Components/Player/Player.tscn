@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Components/Player/Marble.gd" id="1_88qna"]
 [ext_resource type="Script" path="res://Components/Player/GroundCheckRay.gd" id="1_b4ulm"]
 [ext_resource type="Script" path="res://Components/Player/Camera.gd" id="2_1yv4a"]
-[ext_resource type="Texture2D" uid="uid://csrl4tsj3emri" path="res://marble.jpg" id="2_kib4a"]
+[ext_resource type="Texture2D" uid="uid://bx4wmxu03m8tk" path="res://marble.jpg" id="2_kib4a"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6y082"]
 bounce = 0.5
