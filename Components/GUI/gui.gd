@@ -8,4 +8,3 @@ func _input(_event: InputEvent) -> void:
 
 func _on_touch_screen_button_pressed() -> void:
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-	print(DisplayServer.window_get_mode());
