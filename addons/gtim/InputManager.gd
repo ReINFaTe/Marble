@@ -86,7 +86,7 @@ var _drag_startup_timer : Timer = Timer.new()
 var _long_press_timer   : Timer = Timer.new()
 
 var _single_touch_cancelled : bool = false
-var _single_drag_enabled    : bool = false 
+var _single_drag_enabled    : bool = true 
 
 #############
 # Functions #
