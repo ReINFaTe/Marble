@@ -16,6 +16,7 @@ grow_vertical = 0
 script = ExtResource("1_8x4dy")
 
 [node name="Base" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(300, 300)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -31,7 +32,6 @@ grow_vertical = 2
 pivot_offset = Vector2(100, 100)
 mouse_force_pass_scroll_events = false
 texture = ExtResource("2_jhjs2")
-stretch_mode = 5
 
 [node name="Tip" type="TextureRect" parent="Base"]
 layout_mode = 1

@@ -82,13 +82,13 @@ theme_override_constants/margin_bottom = 45
 
 [node name="Control" type="Control" parent="MarginContainer/MarginContainer"]
 clip_contents = true
-custom_minimum_size = Vector2(140, 140)
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="MarginContainer/MarginContainer/Control"]
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.215, 0.215)
 texture_normal = ExtResource("5_va6xh")
 texture_pressed = ExtResource("6_3xk50")
 action = "jump"
@@ -97,9 +97,12 @@ visibility_mode = 1
 [node name="Virtual Joystick" parent="." instance=ExtResource("5_78i8l")]
 layout_mode = 1
 anchors_preset = -1
-offset_top = -350.0
-offset_right = 350.0
+anchor_top = 0.4
+anchor_right = 0.375
+offset_top = 0.0
+offset_right = 0.0
 offset_bottom = 0.0
+clampzone_size = 200.0
 joystick_mode = 1
 visibility_mode = 1
 action_left = "left"
