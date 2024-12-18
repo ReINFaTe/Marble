@@ -7,4 +7,10 @@ func _input(_event: InputEvent) -> void:
 
 
 func _on_touch_screen_button_pressed() -> void:
-	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	if (DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN):
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		DisplayServer.screen_set_orientation(DisplayServer.SCREEN_SENSOR)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		DisplayServer.screen_set_orientation(DisplayServer.SCREEN_LANDSCAPE)
+		
