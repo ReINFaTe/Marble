@@ -1,8 +1,7 @@
-[gd_scene load_steps=30 format=3 uid="uid://bogu50xdrsyk8"]
+[gd_scene load_steps=29 format=3 uid="uid://bogu50xdrsyk8"]
 
 [ext_resource type="PackedScene" uid="uid://4n7884ks3dp1" path="res://Components/Player/Player.tscn" id="1_caash"]
 [ext_resource type="Texture2D" uid="uid://b7s6lkaeyeec2" path="res://Art/Textures/sky_panorama.jpg" id="1_ri3pa"]
-[ext_resource type="Shader" path="res://Levels/Level1.gdshader" id="1_xkiug"]
 [ext_resource type="PackedScene" uid="uid://b0nt4n13a6448" path="res://addons/addons/starlight/Stars.tscn" id="3_dkx14"]
 [ext_resource type="PackedScene" uid="uid://b7kif88j71y5f" path="res://Components/FinishPoint/FinishPoint.tscn" id="3_qr7kf"]
 [ext_resource type="PackedScene" uid="uid://c6x8xvlb8qnoa" path="res://Components/Trampoline/trampoline.tscn" id="4_4fjc3"]
@@ -29,22 +28,23 @@ glow_enabled = true
 adjustment_enabled = true
 adjustment_saturation = 1.3
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_gwp3p"]
-viewport_path = NodePath("Environment/CSGBox3D/SubViewport")
+[sub_resource type="Gradient" id="Gradient_s1y6m"]
+offsets = PackedFloat32Array(0, 0.522388, 1)
+colors = PackedColorArray(0.101961, 0.0431373, 0.266667, 1, 0.203922, 0.419608, 0.635294, 0.6, 1, 1, 1, 0.156863)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lm57h"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_gwp3p")
-uv1_scale = Vector3(2, 2, 2)
-uv1_triplanar_sharpness = 84.4485
-uv2_triplanar_sharpness = 0.0114382
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7r7vv"]
+frequency = 0.0137
+fractal_octaves = 10
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ane5k"]
-shader = ExtResource("1_xkiug")
-shader_parameter/bg_color = Color(0.00784314, 0.0352941, 0.117647, 1)
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5p6ng"]
+color_ramp = SubResource("Gradient_s1y6m")
+noise = SubResource("FastNoiseLite_7r7vv")
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_2v2lx"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0r7m0"]
+transparency = 1
+albedo_color = Color(0.0980392, 0.211765, 0.333333, 0.741176)
+albedo_texture = SubResource("NoiseTexture2D_5p6ng")
+albedo_texture_msdf = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y4j53"]
 albedo_texture = ExtResource("6_wu2md")
@@ -86,20 +86,12 @@ environment = SubResource("Environment_t8pwf")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
 transform = Transform3D(0.923766, 0.331651, -0.191479, 0, 0.5, 0.866026, 0.382958, -0.800005, 0.461883, 0, 27.1843, 0.459692)
-shadow_enabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 use_collision = true
-size = Vector3(100, 0.001, 100)
-material = SubResource("StandardMaterial3D_lm57h")
-
-[node name="SubViewport" type="SubViewport" parent="Environment/CSGBox3D"]
-size = Vector2i(2000, 2000)
-
-[node name="Sprite2D" type="Sprite2D" parent="Environment/CSGBox3D/SubViewport"]
-material = SubResource("ShaderMaterial_ane5k")
-scale = Vector2(4000, 4000)
-texture = SubResource("CanvasTexture_2v2lx")
+size = Vector3(500, 2, 500)
+material = SubResource("StandardMaterial3D_0r7m0")
 
 [node name="Stars" parent="Environment" instance=ExtResource("3_dkx14")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.7482, 1.53996, -4.76891)
