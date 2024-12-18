@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=3 uid="uid://bogu50xdrsyk8"]
 
 [ext_resource type="PackedScene" uid="uid://4n7884ks3dp1" path="res://Components/Player/Player.tscn" id="1_caash"]
-[ext_resource type="Texture2D" uid="uid://b7s6lkaeyeec2" path="res://Art/Textures/sky_panorama.jpg" id="1_ri3pa"]
+[ext_resource type="Texture2D" uid="uid://n3urs53iy4w7" path="res://Art/Textures/sky_panorama_low_res.jpg" id="1_ourvy"]
 [ext_resource type="PackedScene" uid="uid://b0nt4n13a6448" path="res://addons/addons/starlight/Stars.tscn" id="3_dkx14"]
 [ext_resource type="PackedScene" uid="uid://b7kif88j71y5f" path="res://Components/FinishPoint/FinishPoint.tscn" id="3_qr7kf"]
 [ext_resource type="PackedScene" uid="uid://c6x8xvlb8qnoa" path="res://Components/Trampoline/trampoline.tscn" id="4_4fjc3"]
@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://ddquxpdkwe41f" path="res://Components/GUI/gui.tscn" id="11_3qq0i"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_f16wb"]
-panorama = ExtResource("1_ri3pa")
+panorama = ExtResource("1_ourvy")
 
 [sub_resource type="Sky" id="Sky_gaan3"]
 sky_material = SubResource("PanoramaSkyMaterial_f16wb")
@@ -69,6 +69,9 @@ albedo_texture = ExtResource("5_jibbt")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxpi5"]
 albedo_texture = ExtResource("9_nlfft")
+emission_enabled = true
+emission = Color(0, 0.890196, 0.784314, 1)
+emission_energy_multiplier = 0.07
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aaeeb"]
 albedo_texture = ExtResource("6_ugmrd")

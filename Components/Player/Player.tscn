@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Components/Player/Marble.gd" id="1_88qna"]
 [ext_resource type="Script" path="res://Components/Player/GroundCheckRay.gd" id="1_b4ulm"]
 [ext_resource type="Script" path="res://Components/Player/Camera.gd" id="2_1yv4a"]
-[ext_resource type="Texture2D" uid="uid://bx4wmxu03m8tk" path="res://marble.jpg" id="2_kib4a"]
+[ext_resource type="Texture2D" uid="uid://dkrvbt0b31drx" path="res://marble_low_res.jpg" id="3_6vojo"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6y082"]
 bounce = 0.5
@@ -12,7 +12,7 @@ bounce = 0.5
 radius = 0.124816
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hc43k"]
-albedo_texture = ExtResource("2_kib4a")
+albedo_texture = ExtResource("3_6vojo")
 
 [sub_resource type="SphereMesh" id="SphereMesh_eu2ct"]
 material = SubResource("StandardMaterial3D_hc43k")

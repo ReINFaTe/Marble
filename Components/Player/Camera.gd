@@ -45,6 +45,5 @@ func _input(event):
 	if event is InputEventMouseButton:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if (event is InputEventSingleScreenDrag):
-		print(event)
 		camrot_h += -event.relative.x * h_sensitivity
 		camrot_v += -event.relative.y * v_sensitivity
