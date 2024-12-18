@@ -38,12 +38,38 @@ func _physics_process(delta):
 	rotation_degrees.z = 0
 	
 	
-func _input(event):
+#func _input(event):
+	#if event is InputEventMouseMotion:
+		#camrot_h += -event.relative.x * h_sensitivity
+		#camrot_v += -event.relative.y * v_sensitivity
+	#if event is InputEventMouseButton:
+		#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+#
+	#if (event is InputEventScreenDrag):
+		#var new_pos: Vector2 = event.position.abs()
+		#if (!last_pos):
+			#last_pos = new_pos
+		#var relative = (new_pos - last_pos).abs();
+		#camrot_h += -relative.x * h_sensitivity
+		#camrot_v += -relative.y * v_sensitivity
+		#last_pos = new_pos
+
+func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		camrot_h += -event.relative.x * h_sensitivity
 		camrot_v += -event.relative.y * v_sensitivity
 	if event is InputEventMouseButton:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	if (event is InputEventSingleScreenDrag and event.relative.length() < 60):
-		camrot_h += -event.relative.x * h_sensitivity
-		camrot_v += -event.relative.y * v_sensitivity
+
+	if event is InputEventScreenTouch and event.is_pressed():
+		index = event.index
+		last_pos = event.position
+	if (event is InputEventScreenDrag and event.index == index):
+		var new_pos: Vector2 = event.position
+		var relative = (new_pos - last_pos);
+		camrot_h += -relative.x * h_sensitivity
+		camrot_v += -relative.y * v_sensitivity
+		last_pos = new_pos
+
+var last_pos = null;
+var index = -1;

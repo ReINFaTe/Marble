@@ -13,11 +13,6 @@ config_version=5
 config/name="Marble"
 run/main_scene="res://Levels/Level1.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
-
-[autoload]
-
-InputManager="*res://addons/gtim/InputManager.gd"
 
 [display]
 
