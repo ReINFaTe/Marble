@@ -9,8 +9,12 @@ func _input(_event: InputEvent) -> void:
 func _on_touch_screen_button_pressed() -> void:
 	if (DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN):
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-		DisplayServer.screen_set_orientation(DisplayServer.SCREEN_SENSOR)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-		DisplayServer.screen_set_orientation(DisplayServer.SCREEN_LANDSCAPE)
-		
+	if OS.has_feature('web'):
+		var window = JavaScriptBridge.get_interface('window')
+		if (DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN):
+			JavaScriptBridge.eval("window.screen.orientation.lock('portrait').then(s => '', e => '')")
+		else:
+			JavaScriptBridge.eval("window.screen.orientation.lock('landscape').then(s => '', e => '')")
+			

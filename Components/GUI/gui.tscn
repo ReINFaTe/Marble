@@ -114,17 +114,17 @@ action_down = "backward"
 [node name="Control" type="Control" parent="."]
 clip_contents = true
 layout_mode = 1
-anchor_left = 0.92
+anchor_left = 0.889
 anchor_top = 0.02
-anchor_right = 0.96
+anchor_right = 0.97
 anchor_bottom = 0.02
 offset_left = -0.0401611
-offset_right = -0.120117
-offset_bottom = 46.0
+offset_right = 6.64783
+offset_bottom = 100.0
 grow_horizontal = 0
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="Control"]
-scale = Vector2(0.09, 0.09)
+scale = Vector2(0.19, 0.19)
 texture_normal = ExtResource("8_0x2f7")
 
 [connection signal="pressed" from="Control/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
