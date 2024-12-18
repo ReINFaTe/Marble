@@ -1,10 +1,12 @@
-[gd_scene load_steps=28 format=3 uid="uid://bogu50xdrsyk8"]
+[gd_scene load_steps=30 format=3 uid="uid://bogu50xdrsyk8"]
 
 [ext_resource type="PackedScene" uid="uid://4n7884ks3dp1" path="res://Components/Player/Player.tscn" id="1_caash"]
-[ext_resource type="Shader" path="res://Levels/stars_sky.gdshader" id="1_mhq5p"]
+[ext_resource type="Texture2D" uid="uid://b7s6lkaeyeec2" path="res://Art/Textures/sky_panorama.jpg" id="1_ri3pa"]
 [ext_resource type="Shader" path="res://Levels/Level1.gdshader" id="1_xkiug"]
+[ext_resource type="PackedScene" uid="uid://b0nt4n13a6448" path="res://addons/addons/starlight/Stars.tscn" id="3_dkx14"]
 [ext_resource type="PackedScene" uid="uid://b7kif88j71y5f" path="res://Components/FinishPoint/FinishPoint.tscn" id="3_qr7kf"]
 [ext_resource type="PackedScene" uid="uid://c6x8xvlb8qnoa" path="res://Components/Trampoline/trampoline.tscn" id="4_4fjc3"]
+[ext_resource type="Script" path="res://addons/addons/starlight/StarGenerator.gd" id="4_vftga"]
 [ext_resource type="Texture2D" uid="uid://dm677eeln63er" path="res://Art/Textures/earth.jpg" id="5_jibbt"]
 [ext_resource type="Texture2D" uid="uid://bhpi5guvamn7b" path="res://Art/Textures/moon.jpg" id="6_u4e2y"]
 [ext_resource type="Texture2D" uid="uid://c48najj6guedt" path="res://Art/Textures/sun.jpg" id="6_ugmrd"]
@@ -12,27 +14,20 @@
 [ext_resource type="Texture2D" uid="uid://bk3yd116n2jwg" path="res://Art/Textures/neptune.jpg" id="9_nlfft"]
 [ext_resource type="PackedScene" uid="uid://ddquxpdkwe41f" path="res://Components/GUI/gui.tscn" id="11_3qq0i"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5vfk7"]
-shader = ExtResource("1_mhq5p")
-shader_parameter/sky_color = Color(0.03, 0.05, 0.11, 1)
-shader_parameter/star_base_color = Color(0.8, 1, 0.3, 1)
-shader_parameter/star_hue_offset = 1.0
-shader_parameter/star_intensity = 0.103
-shader_parameter/star_twinkle_speed = 1.605
-shader_parameter/star_twinkle_intensity = 0.2
-shader_parameter/layer_scale = 20.0
-shader_parameter/layer_scale_step = 10.0
-shader_parameter/layers_count = 3
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_f16wb"]
+panorama = ExtResource("1_ri3pa")
 
-[sub_resource type="Sky" id="Sky_qwfwp"]
-sky_material = SubResource("ShaderMaterial_5vfk7")
+[sub_resource type="Sky" id="Sky_gaan3"]
+sky_material = SubResource("PanoramaSkyMaterial_f16wb")
 
 [sub_resource type="Environment" id="Environment_t8pwf"]
 background_mode = 2
-sky = SubResource("Sky_qwfwp")
+sky = SubResource("Sky_gaan3")
 ambient_light_energy = 16.0
 tonemap_mode = 2
 glow_enabled = true
+adjustment_enabled = true
+adjustment_saturation = 1.3
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_gwp3p"]
 viewport_path = NodePath("Environment/CSGBox3D/SubViewport")
@@ -79,7 +74,8 @@ albedo_texture = ExtResource("9_nlfft")
 albedo_texture = ExtResource("6_ugmrd")
 emission_enabled = true
 emission = Color(0.80167, 0.3786, 1.92523e-07, 1)
-emission_energy_multiplier = 16.0
+emission_energy_multiplier = 1.5
+emission_texture = ExtResource("6_ugmrd")
 
 [node name="Level1" type="Node3D"]
 
@@ -104,6 +100,14 @@ size = Vector2i(2000, 2000)
 material = SubResource("ShaderMaterial_ane5k")
 scale = Vector2(4000, 4000)
 texture = SubResource("CanvasTexture_2v2lx")
+
+[node name="Stars" parent="Environment" instance=ExtResource("3_dkx14")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.7482, 1.53996, -4.76891)
+script = ExtResource("4_vftga")
+size = 1000.0
+star_count = 10000
+rng_seed = 1234
+generate_at_origin = false
 
 [node name="Player" parent="." instance=ExtResource("1_caash")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
