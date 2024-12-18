@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ddquxpdkwe41f"]
+[gd_scene load_steps=12 format=3 uid="uid://ddquxpdkwe41f"]
 
 [ext_resource type="Script" path="res://Components/GUI/timer.gd" id="1_rtsgy"]
 [ext_resource type="Script" path="res://Components/GUI/gui.gd" id="1_t88eu"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="5_78i8l"]
 [ext_resource type="Texture2D" uid="uid://hcjdwmkt4d5a" path="res://Components/GUI/jump.png" id="5_va6xh"]
 [ext_resource type="Texture2D" uid="uid://rd2hw1adrj6f" path="res://Components/GUI/jump_prs.png" id="6_3xk50"]
+[ext_resource type="Texture2D" uid="uid://bxibtk7m38x6a" path="res://Components/GUI/expand.png" id="8_0x2f7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1higc"]
 font_size = 72
@@ -97,8 +98,8 @@ visibility_mode = 1
 [node name="Virtual Joystick" parent="." instance=ExtResource("5_78i8l")]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.4
-anchor_right = 0.375
+anchor_top = 0.0
+anchor_right = 0.42
 offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
@@ -109,3 +110,21 @@ action_left = "left"
 action_right = "right"
 action_up = "forward"
 action_down = "backward"
+
+[node name="Control" type="Control" parent="."]
+clip_contents = true
+layout_mode = 1
+anchor_left = 0.92
+anchor_top = 0.02
+anchor_right = 0.96
+anchor_bottom = 0.02
+offset_left = -0.0401611
+offset_right = -0.120117
+offset_bottom = 46.0
+grow_horizontal = 0
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Control"]
+scale = Vector2(0.09, 0.09)
+texture_normal = ExtResource("8_0x2f7")
+
+[connection signal="pressed" from="Control/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
